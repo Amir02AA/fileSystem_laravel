@@ -12,7 +12,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('show');
 });
+
+Route::prefix('files')->group(function () {
+
+        Route::get('/',[\App\Http\Controllers\FileController::class,'index']);
+    }
+
+);
